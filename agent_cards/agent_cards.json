@@ -1,0 +1,66 @@
+[
+  {
+    "id": "AG-01",
+    "name": "Sensor Intelligence",
+    "purpose": "Analyse les mesures simulées et détecte les anomalies configurées.",
+    "input": "equipment_id, temperature, vibration, speed",
+    "output": "sensor status, anomalies, explanation",
+    "control": "Seuils illustratifs uniquement ; aucune commande industrielle."
+  },
+  {
+    "id": "AG-02",
+    "name": "Predictive Diagnosis",
+    "purpose": "Propose des causes possibles et des points d'inspection à partir des anomalies.",
+    "input": "mesures simulées, statut capteur, anomalies",
+    "output": "causes possibles, explication, score heuristique, inspections",
+    "control": "Hypothèses à confirmer par inspection humaine ; score non probabiliste."
+  },
+  {
+    "id": "AG-03",
+    "name": "Risk Assessment",
+    "purpose": "Classe le niveau de risque et explicite l'impact opérationnel estimé.",
+    "input": "statut capteur, anomalies, causes possibles",
+    "output": "LOW / MEDIUM / HIGH / CRITICAL, réponse recommandée",
+    "control": "Règles de prototype, non certifiées pour la sécurité minière."
+  },
+  {
+    "id": "AG-04",
+    "name": "Digital Twin Simulator",
+    "purpose": "Met à jour l'état virtuel de l'équipement dans le scénario simulé.",
+    "input": "statut capteur, risque, anomalies",
+    "output": "état virtuel, santé, localisation logique",
+    "control": "Représentation schématique ; aucune connexion à un jumeau industriel réel."
+  },
+  {
+    "id": "AG-05",
+    "name": "Decision Optimizer",
+    "purpose": "Compare des options de réponse selon le risque, l'impact et le downtime qualitatif.",
+    "input": "risque, impact, état virtuel",
+    "output": "options, recommandation, justification",
+    "control": "Aide à la décision uniquement ; approbation humaine requise."
+  },
+  {
+    "id": "AG-06",
+    "name": "Resource Coordinator",
+    "purpose": "Compare les ressources requises avec une liste de disponibilité simulée.",
+    "input": "option recommandée, ressources requises",
+    "output": "ressources identifiées/manquantes, statut de planification",
+    "control": "Pas de connexion à un inventaire ou planning réel."
+  },
+  {
+    "id": "AG-07",
+    "name": "Incident Management",
+    "purpose": "Crée un incident persistant pour les risques HIGH ou CRITICAL.",
+    "input": "équipement, anomalies, risque, recommandation",
+    "output": "incident_id, gravité, statut AWAITING_APPROVAL",
+    "control": "Ne déclenche pas une intervention automatiquement."
+  },
+  {
+    "id": "AG-08",
+    "name": "Monitoring & Observability",
+    "purpose": "Trace chaque étape d'exécution avec Correlation ID, statut et durée.",
+    "input": "événements des nœuds LangGraph",
+    "output": "traces STARTED/SUCCESS/FAILED et rapport d'exécution",
+    "control": "Journalisation technique persistée dans SQLite."
+  }
+]

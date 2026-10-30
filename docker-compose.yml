@@ -1,0 +1,15 @@
+services:
+  minepulse:
+    build: .
+    container_name: minepulse-ai
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite+aiosqlite:////app/data/minepulse.db
+      DEBUG: "false"
+    volumes:
+      - minepulse_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  minepulse_data:

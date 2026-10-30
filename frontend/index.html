@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#081321" />
+  <title>MINEPULSE AI | Mining Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><span></span><span></span><span></span></div>
+      <div><strong>MINEPULSE</strong><small>AI OPERATIONS INTELLIGENCE</small></div>
+    </div>
+    <div class="site-switch"><span class="pulse-dot"></span><div><small>ACTIVE SITE</small><strong>Atlas Mining · Zone A</strong></div><span class="chevron">⌄</span></div>
+    <nav class="nav">
+      <p class="nav-label">WORKSPACE</p>
+      <button class="nav-item active" data-target="overview"><span>◫</span> Overview</button>
+      <button class="nav-item" data-target="operations"><span>⌁</span> Live operations</button>
+      <button class="nav-item" data-target="digital-twin"><span>◇</span> Digital twin</button>
+      <button class="nav-item" data-target="incidents"><span>⚑</span> Incident center <i id="navIncidentCount">0</i></button>
+      <p class="nav-label">INTELLIGENCE</p>
+      <button class="nav-item" data-target="observability"><span>⌘</span> Observability</button>
+      <button class="nav-item" data-target="governance"><span>▤</span> Agent governance</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="system-state"><span class="pulse-dot"></span><div><strong>Systems operational</strong><small>Simulation environment</small></div></div>
+      <div class="user-mini"><div class="avatar">MP</div><div><strong>MinePulse Operator</strong><small>Demo workspace</small></div><span>•••</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><div class="eyebrow">MINING INTELLIGENCE / <span id="sectionName">OVERVIEW</span></div><h1 id="pageTitle">Operations overview</h1></div>
+      <div class="top-actions"><span class="env-pill"><span></span> SIMULATION MODE</span><button class="icon-btn" id="refreshBtn" title="Refresh">↻</button><div class="date-chip" id="clock">--:--:--</div></div>
+    </header>
+
+    <section class="view active" id="overview">
+      <div class="welcome-row"><div><h2>Good morning, Operator.</h2><p>Here is the current operational picture of your simulated mine.</p></div><button class="primary-btn" data-target="operations">＋ Run sensor analysis</button></div>
+      <div class="kpi-grid">
+        <article class="kpi-card"><div class="kpi-head"><span>ACTIVE INCIDENTS</span><b class="kpi-icon amber">⚑</b></div><strong id="kpiActive">—</strong><small><span class="muted">Requiring attention</span></small></article>
+        <article class="kpi-card"><div class="kpi-head"><span>CRITICAL INCIDENTS</span><b class="kpi-icon red">!</b></div><strong id="kpiCritical">—</strong><small><span class="muted">High-priority cases</span></small></article>
+        <article class="kpi-card"><div class="kpi-head"><span>APPROVAL RECORDS</span><b class="kpi-icon teal">✓</b></div><strong id="kpiApprovals">—</strong><small><span class="muted">Human decisions logged</span></small></article>
+        <article class="kpi-card"><div class="kpi-head"><span>MONITORING EVENTS</span><b class="kpi-icon blue">⌘</b></div><strong id="kpiEvents">—</strong><small><span class="muted">Persisted in SQLite</span></small></article>
+      </div>
+      <div class="content-grid">
+        <article class="panel twin-panel">
+          <div class="panel-heading"><div><span class="eyebrow">VIRTUAL ASSET MAP</span><h3>Mine site overview</h3></div><span class="tag">DIGITAL TWIN · SIMULATED</span></div>
+          <div class="mine-map">
+            <div class="map-grid"></div>
+            <div class="terrain terrain-a"></div><div class="terrain terrain-b"></div>
+            <div class="route-line"></div>
+            <div class="asset crusher"><span class="asset-light ok"></span><b>CR-01</b><small>Crusher</small></div>
+            <div class="asset conveyor"><span class="asset-light warn"></span><b>C-02</b><small>Conveyor</small></div>
+            <div class="asset truck"><span class="asset-light ok"></span><b>HT-04</b><small>Haul truck</small></div>
+            <div class="map-label label-a">NORTH EXTRACTION ZONE</div><div class="map-label label-b">PROCESSING AREA</div>
+            <div class="map-coords">24° 38' N&nbsp;&nbsp; 46° 43' E <span>SCHEMATIC VIEW</span></div>
+          </div>
+          <div class="asset-legend"><span><i class="legend-dot green"></i> Normal</span><span><i class="legend-dot amber"></i> Warning</span><span><i class="legend-dot red"></i> Critical</span><span class="muted">Illustrative assets and locations</span></div>
+        </article>
+        <article class="panel health-panel">
+          <div class="panel-heading"><div><span class="eyebrow">PLATFORM HEALTH</span><h3>Agentic workflow</h3></div><span class="live-tag"><i></i> READY</span></div>
+          <div class="workflow-mini">
+            <div class="wf-node"><span>01</span><div><b>Sensor intelligence</b><small>Signal analysis</small></div><i class="node-check">✓</i></div>
+            <div class="wf-node"><span>02</span><div><b>Predictive diagnosis</b><small>Possible fault causes</small></div><i class="node-check">✓</i></div>
+            <div class="wf-node"><span>03</span><div><b>Risk assessment</b><small>Risk classification</small></div><i class="node-check">✓</i></div>
+            <div class="wf-node"><span>04</span><div><b>Digital twin simulator</b><small>Virtual equipment state</small></div><i class="node-check">✓</i></div>
+            <div class="wf-node"><span>05</span><div><b>Decision optimizer</b><small>What-if alternatives</small></div><i class="node-check">✓</i></div>
+            <div class="wf-node"><span>06</span><div><b>Resource coordinator</b><small>Resource availability</small></div><i class="node-check">✓</i></div>
+            <div class="wf-node"><span>07</span><div><b>Incident management</b><small>Incident creation</small></div><i class="node-check">✓</i></div>
+          </div>
+          <div class="monitor-note"><span>⌘</span><div><b>Monitoring is cross-cutting</b><small>STARTED / SUCCESS / FAILED events · Correlation ID</small></div></div>
+        </article>
+      </div>
+      <article class="panel table-panel">
+        <div class="panel-heading"><div><span class="eyebrow">LATEST ACTIVITY</span><h3>Recent incidents</h3></div><button class="text-btn" data-target="incidents">View all →</button></div>
+        <div class="table-wrap"><table><thead><tr><th>INCIDENT</th><th>EQUIPMENT</th><th>SEVERITY</th><th>STATUS</th><th>CREATED</th></tr></thead><tbody id="recentIncidents"><tr><td colspan="5" class="empty">No incidents yet. Run a sensor analysis to begin.</td></tr></tbody></table></div>
+      </article>
+    </section>
+
+    <section class="view" id="operations">
+      <div class="section-intro"><div><span class="eyebrow">SENSOR INTELLIGENCE</span><h2>Live operations</h2><p>Run an end-to-end multi-agent analysis using simulated equipment telemetry.</p></div><span class="tag">DEMO DATA · NOT CONNECTED TO REAL SENSORS</span></div>
+      <div class="content-grid ops-grid">
+        <article class="panel form-panel">
+          <div class="panel-heading"><div><span class="eyebrow">TELEMETRY INPUT</span><h3>Equipment sensor readings</h3></div><span class="tag">SIMULATED</span></div>
+          <form id="analysisForm">
+            <label>Equipment ID<input id="equipmentId" value="C-02" required /></label>
+            <div class="input-grid">
+              <label>Temperature <small>°C</small><input id="temperature" type="number" value="92" min="-50" max="300" step="0.1" required /></label>
+              <label>Vibration <small>mm/s</small><input id="vibration" type="number" value="12" min="0" max="100" step="0.1" required /></label>
+              <label>Speed <small>m/s</small><input id="speed" type="number" value="1.8" min="0" max="100" step="0.1" required /></label>
+            </div>
+            <div class="preset-row"><span>QUICK SCENARIOS</span><button type="button" class="preset" data-preset="normal">Normal</button><button type="button" class="preset" data-preset="warning">Warning</button><button type="button" class="preset" data-preset="critical">Critical</button></div>
+            <button class="primary-btn full" id="runAnalysis" type="submit">▶ Run multi-agent analysis</button>
+            <p class="form-footnote">Thresholds are illustrative software rules for this prototype. They are not certified industrial safety limits.</p>
+          </form>
+        </article>
+        <article class="panel result-panel">
+          <div class="panel-heading"><div><span class="eyebrow">ANALYSIS OUTPUT</span><h3>Decision intelligence</h3></div><span class="live-tag" id="analysisState"><i></i> WAITING</span></div>
+          <div id="analysisEmpty" class="empty-state"><div class="empty-orbit">⌁</div><h3>Awaiting telemetry</h3><p>Submit a sensor scenario to activate the agentic workflow and inspect the results here.</p></div>
+          <div id="analysisResult" class="hidden">
+            <div class="result-summary"><div><small>RISK LEVEL</small><strong id="resultRisk">—</strong></div><div><small>SENSOR STATUS</small><strong id="resultSensor">—</strong></div><div><small>VIRTUAL STATE</small><strong id="resultTwin">—</strong></div></div>
+            <div class="result-block"><h4>Detected anomalies</h4><div id="resultAnomalies" class="chips"></div></div>
+            <div class="result-block"><h4>Predictive diagnosis</h4><ul id="resultCauses"></ul><p id="resultDiagnosis" class="muted"></p></div>
+            <div class="result-block"><h4>Recommended decision</h4><b id="resultRecommendation"></b><p id="resultReason" class="muted"></p><div id="resultOptions" class="option-list"></div></div>
+            <div class="result-block" id="incidentCreatedBlock"><h4>Incident management</h4><p id="resultIncident" class="muted"></p></div>
+            <div class="correlation-strip"><small>CORRELATION ID</small><code id="resultCorrelation">—</code><button id="copyCorrelation" class="text-btn">Copy</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="view" id="digital-twin">
+      <div class="section-intro"><div><span class="eyebrow">VIRTUAL EQUIPMENT REPRESENTATION</span><h2>Digital twin</h2><p>A schematic digital representation driven by the latest analysis results.</p></div><span class="tag">SIMULATION ONLY</span></div>
+      <div class="content-grid">
+        <article class="panel twin-panel">
+          <div class="panel-heading"><div><span class="eyebrow">PROCESSING ZONE A</span><h3>Conveyor C-02 · Virtual asset</h3></div><span class="status-pill warning" id="twinStatus">AWAITING DATA</span></div>
+          <div class="twin-visual"><div class="twin-belt"><div class="belt-support"></div><div class="belt-support"></div><div class="belt-support"></div><div class="belt-support"></div><div class="belt-rollers"></div></div><div class="twin-motor"><div class="motor-core"></div></div><div class="twin-sensor sensor-one">T°</div><div class="twin-sensor sensor-two">VIB</div><div class="twin-caption">CONVEYOR ASSEMBLY / C-02</div></div>
+          <div class="asset-metrics"><div><small>TEMPERATURE</small><b id="twinTemp">92.0 °C</b></div><div><small>VIBRATION</small><b id="twinVibration">12.0 mm/s</b></div><div><small>SPEED</small><b id="twinSpeed">1.8 m/s</b></div><div><small>HEALTH</small><b id="twinHealth">UNASSESSED</b></div></div>
+        </article>
+        <article class="panel">
+          <div class="panel-heading"><div><span class="eyebrow">WHAT-IF DECISION ENGINE</span><h3>Compare response scenarios</h3></div></div>
+          <div class="scenario-card recommended"><div class="scenario-top"><b>Immediate maintenance</b><span>HIGH PRIORITY</span></div><p>Prompt technical inspection and maintenance planning, subject to supervisor approval.</p><div class="scenario-meta"><span>Risk exposure <b>Lower after verified repair</b></span><span>Downtime <b>High</b></span></div></div>
+          <div class="scenario-card"><div class="scenario-top"><b>Scheduled maintenance</b><span>PLANNED</span></div><p>Schedule an intervention while increasing monitoring until work begins.</p><div class="scenario-meta"><span>Risk exposure <b>Persists until intervention</b></span><span>Downtime <b>Medium</b></span></div></div>
+          <div class="scenario-card"><div class="scenario-top"><b>Continued monitoring</b><span>OBSERVE</span></div><p>Continue observation; this option may be unsuitable for critical conditions.</p><div class="scenario-meta"><span>Risk exposure <b>May increase</b></span><span>Downtime <b>Uncertain</b></span></div></div>
+          <p class="form-footnote">Scenario descriptions are decision-support estimates, not operational instructions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="view" id="incidents">
+      <div class="section-intro"><div><span class="eyebrow">INCIDENT LIFECYCLE</span><h2>Incident center</h2><p>Review detected cases, record human decisions and follow simulated maintenance.</p></div><button class="secondary-btn" id="reloadIncidents">↻ Refresh incidents</button></div>
+      <article class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>INCIDENT</th><th>EQUIPMENT</th><th>SEVERITY</th><th>STATUS</th><th>RECOMMENDED ACTION</th><th>ACTION</th></tr></thead><tbody id="allIncidents"><tr><td colspan="6" class="empty">Loading incidents…</td></tr></tbody></table></div></article>
+      <article class="panel detail-panel hidden" id="incidentDetail"></article>
+    </section>
+
+    <section class="view" id="observability">
+      <div class="section-intro"><div><span class="eyebrow">EXECUTION TRACEABILITY</span><h2>Observability</h2><p>Execution history persisted in SQLite and grouped by Correlation ID.</p></div><button class="secondary-btn" id="reloadMonitoring">↻ Refresh traces</button></div>
+      <div class="kpi-grid compact"><article class="kpi-card"><div class="kpi-head"><span>MONITORING EVENTS</span></div><strong id="obsEvents">—</strong></article><article class="kpi-card"><div class="kpi-head"><span>SUCCESSFUL AGENT STEPS</span></div><strong id="obsSuccess">—</strong></article><article class="kpi-card"><div class="kpi-head"><span>FAILED AGENT STEPS</span></div><strong id="obsFailed">—</strong></article><article class="kpi-card"><div class="kpi-head"><span>EXECUTIONS</span></div><strong id="obsRuns">—</strong></article></div>
+      <div id="monitoringList" class="trace-list"></div>
+    </section>
+
+    <section class="view" id="governance">
+      <div class="section-intro"><div><span class="eyebrow">RESPONSIBLE AGENT OPERATIONS</span><h2>Agent governance</h2><p>Roles, responsibilities, inputs, outputs and control boundaries.</p></div><span class="tag">AGENT CARDS</span></div>
+      <div id="agentCards" class="agent-grid"></div>
+      <article class="panel governance-note"><h3>Human-in-the-loop control</h3><p>Agents provide analysis and recommendations. Maintenance execution is not autonomously authorized. A named reviewer must approve or reject a critical incident before a maintenance record can be started. The prototype uses simulated telemetry and resource availability.</p></article>
+    </section>
+
+    <footer class="footer"><span>MINEPULSE AI <b>·</b> Mining Operations Intelligence</span><span>Prototype environment · Simulated telemetry · Human approval required</span></footer>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="modal-backdrop hidden" id="actionModal"><div class="modal"><button class="modal-close" id="modalClose">×</button><div id="modalContent"></div></div></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
