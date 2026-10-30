@@ -5,7 +5,7 @@ from typing import Literal
 from pydantic import BaseModel
 from sqlalchemy import select
 
-from backend.database.database import SyncSessionLocal
+from backend.database.database import SyncSessionLocal, init_sync_db
 from backend.database.models import MonitoringEventModel
 
 
@@ -39,6 +39,7 @@ def record_agent_event(
     duration_seconds: float | None = None
 ) -> MonitoringEvent:
     timestamp = datetime.now(timezone.utc)
+    init_sync_db()
     with SyncSessionLocal() as session:
         event = MonitoringEventModel(
             correlation_id=correlation_id,

@@ -58,3 +58,8 @@ SyncSessionLocal = sessionmaker(
     autocommit=False,
     expire_on_commit=False,
 )
+# Import models so all tables are registered before create_all
+from backend.database import models  # noqa: F401
+def init_sync_db():
+    from backend.database import models  # Register all ORM models
+    Base.metadata.create_all(bind=sync_engine)
